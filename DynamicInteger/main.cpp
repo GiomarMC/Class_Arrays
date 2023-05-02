@@ -5,10 +5,14 @@ int main()
 {
     int list[3] = {1,2,3};
     DynamicIntegerArray dynamiclist(list,3);
-    dynamiclist.pushback(8);
-    dynamiclist.pushback(10);
-    dynamiclist.insert(2,5);
-    dynamiclist.remove(2);
+    dynamiclist.print();
+    dynamiclist.pushback(7);
+    dynamiclist.print();
+    dynamiclist.pushback(11);
+    dynamiclist.print();
+    dynamiclist.insert(3,8);
+    dynamiclist.print();
+    dynamiclist.remove(4);
     dynamiclist.print();
     return 0;
 }

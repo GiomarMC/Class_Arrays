@@ -29,21 +29,45 @@ class DynamicIntegerArray
         }
         void pushback(int value)
         {
+            int *newdata;
+            newdata = new int[size + 1];
+            for(int i = 0; i < size; i++)
+                newdata[i] = data[i];
+            newdata[size] = value;
+            delete[] data;
             this -> size = ++size;
-            data[size - 1] = value;
+            data = newdata;
         }
         void insert(int pos, int value)
         {
+            int *newdata;
+            newdata = new int[size + 1];
+            for(int i = 0; i < size + 1; i++)
+            {
+                if(i < pos - 1)
+                    newdata[i] = data[i];
+                else if(i == pos - 1)
+                    newdata[i] = value;
+                else
+                    newdata[i] = data[i - 1];
+            }
+            delete[] data;
             this -> size = ++size;
-            for(int i = size - 1; i > pos; i--)
-                data[i] = data[i - 1];
-            data[pos] = value;
+            data = newdata;
         }
         void remove(int pos)
         {
-            for(int i = pos; i < size - 1; i++)
-                data[i] = data[i + 1];
+            int *newdata;
+            newdata = new int[size - 1];
+            for(int i = 0; i < size - 1; i++)
+            {
+                if(i == pos)
+                    continue;
+                newdata[i] = data[i];
+            }
+            delete[] data;
             this -> size = --size;
+            data = newdata;
         }
         void print() const
         {
