@@ -58,16 +58,21 @@ class DynamicIntegerArray
         void remove(int pos)
         {
             int *newdata;
-            newdata = new int[size - 1];
-            for(int i = 0; i < size - 1; i++)
+            if(pos >= 0 && pos < size)
             {
-                if(i == pos)
-                    continue;
-                newdata[i] = data[i];
+                newdata = new int[size - 1];
+                int j = 0;
+                for(int i = 0; i < size; i++)
+                {
+                    if(i == pos - 1)
+                        continue;
+                    newdata[j] = data[i];
+                    j++;
+                }
+                delete[] data;
+                this -> size = --size;
+                data = newdata;
             }
-            delete[] data;
-            this -> size = --size;
-            data = newdata;
         }
         void print() const
         {

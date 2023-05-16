@@ -12,7 +12,7 @@ int main()
     dynamiclist.print();
     dynamiclist.insert(3,8);
     dynamiclist.print();
-    dynamiclist.remove(4);
+    dynamiclist.remove(2);
     dynamiclist.print();
     return 0;
 }
