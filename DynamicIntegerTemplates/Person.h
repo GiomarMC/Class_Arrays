@@ -1,6 +1,7 @@
 #ifndef PERSON_H
 #define PERSON_H
 #include <string>
+#include <iostream>
 
 class Person
 {
@@ -9,9 +10,10 @@ class Person
         int age;
     public:
         Person();
-        Person(std::string&,int);
+        Person(const std::string&,int);
         std::string getName() const;
         int getAge() const;
+        friend std::ostream& operator <<(std::ostream&,const Person&);
 };
 
 #endif

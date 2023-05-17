@@ -1,5 +1,7 @@
 #include <iostream>
+#include <stdexcept>
 #include "Person.h"
+using namespace std;
 
 Person::Person()
 {
@@ -7,12 +9,14 @@ Person::Person()
     age = 0;
 }
 
-Person::Person(std::string& name,int age)
+Person::Person(const string &name,int age)
 {
     this -> name = name;
     this -> age = age;
 }
 
-std::string Person::getName() const {return name;}
-
-int Person::getAge() const {return age;}
+ostream& operator <<(ostream &os,const Person &person)
+{
+    os << person.name << " : " << person.age;
+    return os;
+}

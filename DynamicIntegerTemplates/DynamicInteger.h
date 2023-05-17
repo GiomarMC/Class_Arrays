@@ -19,7 +19,7 @@ class DynamicIntegerArray
 
 template <class T> DynamicIntegerArray<T>::DynamicIntegerArray()
 {
-    this -> size = size;
+    this -> size = 0;
     data = new T[size];
 }
 
